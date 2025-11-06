@@ -1,0 +1,52 @@
+.projets {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 25px;
+}
+
+.projets article {
+  background: var(--frosted);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.projets article:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.1);
+  background: rgba(255,255,255,0.4);
+}
+
+.projets figure img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  display: block;
+  margin: 0 auto 0.5rem;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.projets figure img:hover {
+  transform: scale(1.05);
+}
+
+.projets h3 a {
+  color: var(--primary-dark);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.projets h3 a:hover {
+  color: var(--primary);
+}
+
+.projets p {
+  color: var(--accent);
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+}

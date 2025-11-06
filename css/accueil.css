@@ -1,0 +1,57 @@
+/* NAVIGATION INTERNE */
+main nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 25px 0;
+}
+
+main nav a {
+  text-decoration: none;
+  color: white;
+  background: var(--primary);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+main nav a:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
+  background-color: white;
+}
+
+/* SECTIONS */
+section {
+  margin: 20px auto;
+  padding: 0 20px;
+  background: var(--frosted);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: var(--primary-dark);
+}
+
+section p {
+  margin-bottom: 12px;
+  color: var(--accent);
+}
+
+strong {
+  color: var(--text);
+}
+
+/* ICONES */
+.icon-about::before { content: "👤"; margin-right: 8px; }
+.icon-competences::before { content: "💻"; margin-right: 8px; }
+.icon-experiences::before { content: "📅"; margin-right: 8px; }
+.icon-formations::before { content: "🎓"; margin-right: 8px; }
