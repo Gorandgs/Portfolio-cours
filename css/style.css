@@ -1,105 +1,148 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+/* ==========================================================================
+   WINDOWS 3.1 NO-JS THEME
+========================================================================== */
+
+/* --- 1. POLICES & VARIABLES --- */
+@font-face {
+    font-family: "WinFont";
+    src: url("../Fonts/windows-xp-tahoma.otf.woff2") format("woff2");
+    font-display: swap;
+}
 
 :root {
-  --primary: #3b82f6;
-  --primary-dark: #2563eb;
-  --bg: linear-gradient(135deg, #e0f2fe, #f0f9ff);
-  --text: #1f2937;
-  --light: rgba(229, 231, 235, 0.6);
-  --accent: #64748b;
-  --frosted: rgba(255, 255, 255, 0.3);
+    --win-teal: #008080; --win-navy: #000080; --win-gray: #C0C0C0;
+    --win-white: #FFFFFF; --win-black: #000000; --win-gray-shadow: #808080;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
+/* --- 2. CONFIG & CURSEURS --- */
 body {
-  font-family: 'Poppins', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
-  min-height: 100vh;
+    background-color: var(--win-teal);
+    font-family: "WinFont", Tahoma, sans-serif;
+    margin: 0; height: 100vh; width: 100vw; overflow: hidden; user-select: none;
+    cursor: url('../cursors/Arrow.cur'), auto; 
+}
+a, button, .win-btn, label, .desktop-icon {
+    cursor: url('../cursors/Arrow.cur'), auto !important; 
 }
 
-/* HEADER */
-header {
-  text-align: center;
-  padding: 2rem 1rem;
-  background: var(--frosted);
-  backdrop-filter: blur(12px);
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-  margin: 1rem;
-  transition: all 0.3s ease;
-}
+/* --- 3. LOGIQUE NO-JS (CHECKBOX & RADIO HACK) --- */
+input[type="checkbox"], input[type="radio"] { display: none; }
 
-header h1 {
-  font-size: 2rem;
-  font-weight: 600;
-  color: var(--primary-dark);
-  margin-bottom: 0.5rem;
-}
+/* Style de base des fenêtres */
+.window-wrapper { position: absolute; z-index: 10; }
 
-header nav a {
-  text-decoration: none;
-  color: var(--accent);
-  margin: 0 12px;
-  font-weight: 500;
-  transition: all 0.3s ease;
+/* Le Trigger Focus (Label invisible qui couvre la fenêtre) */
+.focus-trigger {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 500; /* Juste au dessus du contenu */
+    cursor: inherit; /* Garde le curseur de la zone */
 }
+/* Quand on clique sur le contenu réel (boutons, icones), on passe au travers du trigger grâce au z-index des enfants */
+.window-body, .title-bar { z-index: 501; position: relative; }
 
-header nav a:hover {
-  color: var(--primary);
-  transform: scale(1.05);
-}
 
-/* MAIN */
-main {
-  padding: 2rem;
-  max-width: 1000px;
-  margin: 2rem auto;
-  background: var(--frosted);
-  backdrop-filter: blur(12px);
-  border-radius: 16px;
-  box-shadow: 0 12px 28px rgba(0,0,0,0.1);
-  transition: all 0.3s ease;
-}
+/* === GESTION Z-INDEX PAR RADIO BUTTONS === */
+/* Quand le radio #focus-main est coché, la fenêtre #win-main passe devant */
+#focus-main:checked ~ #win-main { z-index: 1000; }
+#focus-main:checked ~ #win-main .title-bar { background-color: var(--win-navy); color: white; }
 
-h2 {
-  color: var(--primary-dark);
-  border-bottom: 2px solid var(--light);
-  padding-bottom: 0.5rem;
-  margin-bottom: 1.5rem;
-}
+#focus-projets:checked ~ #win-projets { z-index: 1000; }
+#focus-projets:checked ~ #win-projets .title-bar { background-color: var(--win-navy); color: white; }
 
-a {
-  color: var(--primary);
-  text-decoration: none;
-  transition: 0.3s;
-}
+#focus-cv:checked ~ #win-cv { z-index: 1000; }
+#focus-cv:checked ~ #win-cv .title-bar { background-color: var(--win-navy); color: white; }
 
-a:hover {
-  color: var(--primary-dark);
-}
+#focus-acc:checked ~ #win-acc { z-index: 1000; }
+#focus-acc:checked ~ #win-acc .title-bar { background-color: var(--win-navy); color: white; }
 
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 1.5rem;
-  font-size: 0.9rem;
-  color: var(--accent);
-  margin-top: 2rem;
-}
+#focus-p1:checked ~ #win-p1 { z-index: 1000; }
+#focus-p1:checked ~ #win-p1 .title-bar { background-color: var(--win-navy); color: white; }
 
-footer a {
-  color: var(--primary-dark);
-  transition: color 0.3s;
-}
+#focus-p2:checked ~ #win-p2 { z-index: 1000; }
+#focus-p2:checked ~ #win-p2 .title-bar { background-color: var(--win-navy); color: white; }
 
-footer a:hover {
-  color: var(--primary);
-  text-decoration: underline;
+#focus-clock:checked ~ #win-clock-app { z-index: 1000; }
+#focus-clock:checked ~ #win-clock-app .title-bar { background-color: var(--win-navy); color: white; }
+
+#focus-notepad:checked ~ #win-notepad { z-index: 1000; }
+#focus-notepad:checked ~ #win-notepad .title-bar { background-color: var(--win-navy); color: white; }
+
+#focus-skills:checked ~ #win-skills { z-index: 1000; }
+#focus-skills:checked ~ #win-skills .title-bar { background-color: var(--win-navy); color: white; }
+
+
+/* GESTION VISIBILITÉ (OUVERTURE) */
+.child-window { display: none; }
+/* Si la checkbox toggle est cochée, on affiche */
+#toggle-projets:checked ~ #win-projets { display: block; }
+#toggle-cv-group:checked ~ #win-cv { display: block; }
+#toggle-acc:checked ~ #win-acc { display: block; }
+#toggle-p1:checked ~ #win-p1 { display: block; }
+#toggle-p2:checked ~ #win-p2 { display: block; }
+#toggle-cv-detail:checked ~ #win-notepad { display: block; }
+#toggle-skills:checked ~ #win-skills { display: block; }
+#toggle-clock:checked ~ #win-clock-app { display: block; }
+
+
+/* --- 4. DESIGN FENÊTRE --- */
+.window-frame {
+    background-color: var(--win-gray); padding: 4px;
+    border: 1px solid var(--win-black); box-shadow: 4px 4px 0 rgba(0,0,0,0.2);
+    display: flex; flex-direction: column; position: relative;
 }
+.title-bar {
+    background-color: var(--win-white); color: var(--win-black); /* Inactif par défaut */
+    height: 18px; display: flex; justify-content: space-between; align-items: center;
+    padding: 1px 2px; margin-bottom: 1px;
+}
+.title-text { font-weight: bold; font-size: 13px; text-align: center; flex-grow: 1; }
+.win-btn {
+    width: 16px; height: 16px; background-color: var(--win-gray);
+    border: 1px outset var(--win-white); box-shadow: 1px 1px 0 var(--win-black);
+    color: var(--win-black); font-size: 10px; font-weight: bold;
+    display: flex; align-items: center; justify-content: center;
+}
+.win-btn:active { border-style: inset; transform: translateY(1px); }
+
+/* --- 5. ICONES & CONTENU --- */
+.icon-grid { padding: 20px; display: flex; flex-wrap: wrap; gap: 30px; }
+.main-grid { gap: 40px; padding: 30px; justify-content: center; }
+.desktop-icon { width: 80px; display: flex; flex-direction: column; align-items: center; text-align: center; margin-bottom: 10px; }
+.icon-img { width: 32px; height: 32px; image-rendering: pixelated; margin-bottom: 4px; }
+.icon-label { font-size: 12px; background: white; padding: 1px 3px; border: 1px solid transparent; }
+.desktop-icon:hover .icon-label { background: var(--win-navy); color: white; }
+
+.project-hero { border: 1px solid black; box-shadow: 2px 2px 0 gray; max-width: 100%; }
+.notepad-body { font-family: "Courier New", monospace; font-size: 13px; padding: 5px; white-space: pre-wrap; }
+
+/* --- 6. HORLOGE CSS ANIMÉE --- */
+.clock-face {
+    width: 100px; height: 100px; border-radius: 50%; border: 2px solid black;
+    background: white; position: relative; margin: auto;
+}
+.clock-marker { position: absolute; width: 4px; height: 4px; background: teal; }
+/* Placement simplifié des marqueurs */
+.m-12 { top: 2px; left: 48%; } .m-6 { bottom: 2px; left: 48%; }
+.m-3 { right: 2px; top: 48%; } .m-9 { left: 2px; top: 48%; }
+
+.hand { position: absolute; bottom: 50%; left: 50%; transform-origin: bottom center; background: black; }
+.hour-hand { width: 4px; height: 25px; margin-left: -2px; }
+.minute-hand { width: 2px; height: 35px; margin-left: -1px; }
+.second-hand { width: 1px; height: 40px; background: red; margin-left: -0.5px; }
+
+/* Animation infinie */
+@keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+.anim-sec { animation: rotate 60s linear infinite; }
+.anim-min { animation: rotate 3600s linear infinite; }
+.anim-hour { animation: rotate 43200s linear infinite; }
+
+/* --- 7. SPLASH SCREEN --- */
+.splash-screen {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: black;
+    display: flex; justify-content: center; align-items: center; z-index: 9999;
+    animation: fadeOut 0.5s 1.5s forwards; pointer-events: none;
+}
+@keyframes fadeOut { to { opacity: 0; visibility: hidden; } }

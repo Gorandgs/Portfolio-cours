@@ -3,70 +3,294 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio de Degousée Goran</title>
+    <meta name="description" content="Portfolio de Goran Degousée - Étudiant en DEUST WMI.">
+    <title>Program Manager</title>
+    <link rel="preload" href="Fonts/windows-xp-tahoma.otf.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/accueil.css">
-    <link rel="icon" type="image/svg+xml" href="images/icon_g.svg">
+    <link rel="icon" type="image/png" href="images/icon_g.png">
 </head>
 <body>
-    <header id="haut">
-        <h1>Portfolio de Degousée Goran</h1>
-        <nav>
-            <a href="index.html">Accueil</a>
-            <a href="projects.html">Projets</a>
-        </nav>
-        <hr>
-    </header>
-    <main>
-        <nav>
-            <a href="#about">À propos</a> |
-            <a href="#competences">Compétences</a> |
-            <a href="#experiences">Expériences</a> |
-            <a href="#formations">Formations</a>
-        </nav>
-        <section id="about">
-            <h2>À propos</h2>
-            <p>Étudiant en DEUST WMI</p>
-            <p>Jeune créatif passionné par le design, le dessin et l’identité visuelle</p>
-            <p><strong>Localisation :</strong> Boulogne-sur-Mer, France</p>
-            <p><strong>Email :</strong> <a
-                    href="mailto:goran.degousee@etu.univ-littoral.fr">goran.degousee@etu.univ-littoral.fr</a></p>
-        </section>
-        <hr>
-        <section id="competences">
-            <h2>Compétences</h2>
-            <p><strong>Photoshop</strong><br>
-                <strong>Illustrator</strong><br>
-                <strong>Inkscape</strong><br>
-                <strong>Figma</strong><br>
-            </p>
-        </section>
-        <hr>
-        <section id="experiences">
-            <h2>Expériences récente</h2>
-            <h3>24h StJo</h3>
-            <p>Lycée Campus Saint Joseph Saint-Martin Boulogne | 2022, 2023, 2024</p>
+
+    <!-- SPLASH SCREEN (Animation CSS) -->
+    <div class="splash-screen">
+        <img src="img/start-screen.png" alt="Microsoft Windows 3.1" loading="eager">
+    </div>
+
+    <!-- SYSTÈME DE FOCUS (RADIO BUTTONS) -->
+    <!-- Ces radios invisibles contrôlent quelle fenêtre est au premier plan (z-index) -->
+    <input type="radio" name="win-focus" id="focus-main" checked>
+    <input type="radio" name="win-focus" id="focus-projets">
+    <input type="radio" name="win-focus" id="focus-cv">
+    <input type="radio" name="win-focus" id="focus-acc">
+    <input type="radio" name="win-focus" id="focus-games">
+    <input type="radio" name="win-focus" id="focus-p1">
+    <input type="radio" name="win-focus" id="focus-p2">
+    <input type="radio" name="win-focus" id="focus-p3">
+    <input type="radio" name="win-focus" id="focus-p4">
+    <input type="radio" name="win-focus" id="focus-p5">
+    <input type="radio" name="win-focus" id="focus-clock">
+    <input type="radio" name="win-focus" id="focus-notepad">
+    <input type="radio" name="win-focus" id="focus-skills">
+    <input type="radio" name="win-focus" id="focus-dos">
+
+
+    <!-- ===================================================================
+         1. PROGRAM MANAGER (Fond)
+         =================================================================== -->
+    <div class="window-wrapper" id="win-main" style="width: 800px; height: 600px; top: 20px; left: 50%; transform: translateX(-50%);">
+        
+        <!-- Hack: Label invisible couvrant la fenêtre pour activer le focus au clic -->
+        <label class="focus-trigger" for="focus-main"></label>
+
+        <div class="window-frame">
+            <div class="title-bar">
+                <div class="win-btn">-</div>
+                <span class="title-text">Program Manager</span>
+                <div class="win-btn">▲</div>
+            </div>
             
-            <h3>Stages Imprimerie/Graphisme</h3>
-            <p>Mairie de Boulogne-sur-Mer | 2022, 2023<br>
-                Photoshop, Illustrator</p>
+            <div class="menu-bar">
+                <div class="menu-item">File</div>
+                <div class="menu-item">Options</div>
+                <div class="menu-item">Window</div>
+                <div class="menu-item">Help</div>
+            </div>
 
-            <h3>Stages Technicien</h3>
-            <p>Mairie de Boulogne-sur-Mer/Carré Sam | 2021</p>
-        </section>
-        <hr>
-        <section id="formations">
-            <h2>Formations</h2>
-            <h3>DEUST Webmaster et Métiers de l'Internet</h3>
-            <p>ULCO | 2025 - 2027</p>
+            <div class="window-body" style="background-color: white; height: 100%;">
+                <div class="icon-grid main-grid">
+                    <!-- Groupe PROJETS -->
+                    <!-- Le label active le focus ET ouvre la fenêtre (via checkbox liée plus bas) -->
+                    <label for="toggle-projets" class="desktop-icon icon-large" onclick="document.getElementById('focus-projets').checked=true">
+                        <img src="img/group.png" class="icon-img" alt="Dossier Projets">
+                        <span class="icon-label">Projets</span>
+                    </label>
 
-            <h3>BAC STI2D</h3>
-            <p>Lycée Campus Saint-Joseph | 2023 - 2025</p>
-        </section>
-    </main>
-    <footer>
-        <hr>
-        <p>&copy; 2025 <strong>Degousée Goran</strong>. Tous droits réservés. | <a href="#haut">Haut de page</a></p>
-    </footer>
+                    <!-- Groupe PARCOURS -->
+                    <label for="toggle-cv-group" class="desktop-icon icon-large" onclick="document.getElementById('focus-cv').checked=true">
+                        <img src="img/group.png" class="icon-img" alt="Dossier Parcours">
+                        <span class="icon-label">Parcours</span>
+                    </label>
+
+                    <!-- Groupe ACCESSOIRES -->
+                    <label for="toggle-acc" class="desktop-icon icon-large" onclick="document.getElementById('focus-acc').checked=true">
+                        <img src="img/group.png" class="icon-img" alt="Dossier Accessoires">
+                        <span class="icon-label">Accessoires</span>
+                    </label>
+
+                    <!-- Contact -->
+                    <a href="mailto:degouseegoran@gmail.com" class="desktop-icon icon-large">
+                        <img src="img/accessories/write.png" class="icon-img" alt="Email">
+                        <span class="icon-label">Contact</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================================================================
+         FENÊTRES ENFANTS (GROUPES)
+         =================================================================== -->
+
+    <!-- GROUPE : PROJETS -->
+    <input type="checkbox" id="toggle-projets" class="toggle-window">
+    <div class="window-wrapper child-window" id="win-projets" style="top: 60px; left: 60px; width: 500px;">
+        <label class="focus-trigger" for="focus-projets"></label>
+        <div class="window-frame">
+            <div class="title-bar">
+                <label for="toggle-projets" class="win-btn">-</label>
+                <span class="title-text">Mes Projets</span>
+                <div class="win-btn">▲</div>
+            </div>
+            <div class="window-body">
+                <div class="icon-grid">
+                    <label for="toggle-p1" class="desktop-icon" onclick="document.getElementById('focus-p1').checked=true">
+                        <img src="images/vignettes/projet1.svg" class="icon-img" alt="Okaeri">
+                        <span class="icon-label">Okaeri.EXE</span>
+                    </label>
+                    <label for="toggle-p2" class="desktop-icon" onclick="document.getElementById('focus-p2').checked=true">
+                        <img src="images/vignettes/projet2.svg" class="icon-img" alt="Tokyok">
+                        <span class="icon-label">Tokyok.EXE</span>
+                    </label>
+                    <label for="toggle-p3" class="desktop-icon" onclick="document.getElementById('focus-p3').checked=true">
+                        <img src="images/vignettes/projet3.svg" class="icon-img" alt="Stantz">
+                        <span class="icon-label">Stantz.BAT</span>
+                    </label>
+                    <label for="toggle-p4" class="desktop-icon" onclick="document.getElementById('focus-p4').checked=true">
+                        <img src="images/vignettes/projet4.svg" class="icon-img" alt="OuiShop">
+                        <span class="icon-label">OuiShop.COM</span>
+                    </label>
+                    <label for="toggle-p5" class="desktop-icon" onclick="document.getElementById('focus-p5').checked=true">
+                        <img src="images/vignettes/projet5.svg" class="icon-img" alt="Bupa">
+                        <span class="icon-label">Bupa.EXE</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- GROUPE : PARCOURS -->
+    <input type="checkbox" id="toggle-cv-group" class="toggle-window">
+    <div class="window-wrapper child-window" id="win-cv" style="top: 90px; left: 150px; width: 500px;">
+        <label class="focus-trigger" for="focus-cv"></label>
+        <div class="window-frame">
+            <div class="title-bar">
+                <label for="toggle-cv-group" class="win-btn">-</label>
+                <span class="title-text">Parcours</span>
+                <div class="win-btn">▲</div>
+            </div>
+            <div class="window-body">
+                <div class="icon-grid">
+                    <label for="toggle-cv-detail" class="desktop-icon" onclick="document.getElementById('focus-notepad').checked=true">
+                        <img src="img/accessories/cardfile.png" class="icon-img" alt="CV">
+                        <span class="icon-label">CV.CRD</span>
+                    </label>
+                    <label for="toggle-skills" class="desktop-icon" onclick="document.getElementById('focus-skills').checked=true">
+                        <img src="img/main/pif-editor.png" class="icon-img" alt="Compétences">
+                        <span class="icon-label">Skills.PIF</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- GROUPE : ACCESSOIRES -->
+    <input type="checkbox" id="toggle-acc" class="toggle-window">
+    <div class="window-wrapper child-window" id="win-acc" style="top: 120px; left: 120px; width: 400px;">
+        <label class="focus-trigger" for="focus-acc"></label>
+        <div class="window-frame">
+            <div class="title-bar">
+                <label for="toggle-acc" class="win-btn">-</label>
+                <span class="title-text">Accessoires</span>
+                <div class="win-btn">▲</div>
+            </div>
+            <div class="window-body">
+                <div class="icon-grid">
+                    <label for="toggle-clock" class="desktop-icon" onclick="document.getElementById('focus-clock').checked=true">
+                        <img src="img/accessories/clock.png" class="icon-img" alt="Horloge">
+                        <span class="icon-label">Clock</span>
+                    </label>
+                    <div class="desktop-icon">
+                        <img src="img/accessories/calculator.png" class="icon-img" alt="Calc">
+                        <span class="icon-label">Calculatrice</span>
+                    </div>
+                    <label for="toggle-dos" class="desktop-icon" onclick="document.getElementById('focus-dos').checked=true">
+                         <img src="img/main/ms-dos.png" class="icon-img" alt="DOS">
+                        <span class="icon-label">MS-DOS</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================================================================
+         APPLICATIONS (PROJETS)
+         =================================================================== -->
+    
+    <!-- P1 -->
+    <input type="checkbox" id="toggle-p1" class="toggle-window">
+    <div class="window-wrapper child-window" id="win-p1" style="top: 50px; left: 200px; width: 450px;">
+        <label class="focus-trigger" for="focus-p1"></label>
+        <div class="window-frame">
+            <div class="title-bar">
+                <label for="toggle-p1" class="win-btn">-</label>
+                <span class="title-text">Okaeri - Aperçu</span>
+                <div class="win-btn">▲</div>
+            </div>
+            <div class="window-body" style="padding:15px; text-align:center;">
+                <img src="images/vignettes/projet1.svg" class="project-hero" alt="Okaeri" loading="lazy">
+                <h2>Okaeri</h2><p>Restaurant Onigiri</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- P2 -->
+    <input type="checkbox" id="toggle-p2" class="toggle-window">
+    <div class="window-wrapper child-window" id="win-p2" style="top: 70px; left: 220px; width: 450px;">
+        <label class="focus-trigger" for="focus-p2"></label>
+        <div class="window-frame">
+            <div class="title-bar">
+                <label for="toggle-p2" class="win-btn">-</label>
+                <span class="title-text">Tokyok</span>
+                <div class="win-btn">▲</div>
+            </div>
+            <div class="window-body" style="padding:15px; text-align:center;">
+                <img src="images/vignettes/projet2.svg" class="project-hero" alt="Tokyok" loading="lazy">
+                <h2>Tokyok</h2>
+            </div>
+        </div>
+    </div>
+
+    <!-- (Ajouter P3, P4, P5 sur le même modèle si nécessaire) -->
+
+    <!-- ===================================================================
+         APPLICATIONS (OUTILS)
+         =================================================================== -->
+
+    <!-- CV CARDFILE -->
+    <input type="checkbox" id="toggle-cv-detail" class="toggle-window">
+    <div class="window-wrapper child-window" id="win-notepad" style="top: 100px; left: 250px; width: 500px;">
+        <label class="focus-trigger" for="focus-notepad"></label>
+        <div class="window-frame">
+            <div class="title-bar">
+                <label for="toggle-cv-detail" class="win-btn">-</label>
+                <span class="title-text">Cardfile - GORAN_CV.CRD</span>
+                <div class="win-btn">▲</div>
+            </div>
+            <div class="window-body" style="padding:0;">
+                <div style="background:white; border-bottom:1px solid black; padding:5px; font-weight:bold;">Index: Expérience</div>
+                <div style="padding:15px; font-size:13px; line-height:1.4;">
+                    <h3 style="margin-top:0;">PROJET "24H DE SAINT-JO"</h3>
+                    <p>Conception d'une voiture radiocommandée 1/10e hybride-hydrogène.</p>
+                    <hr style="border:0; border-top:1px dashed #000; margin:10px 0;">
+                    <h3>STAGES MAIRIE (2022-2023)</h3>
+                    <p>Imprimerie & Chaîne graphique.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SKILLS PIF -->
+    <input type="checkbox" id="toggle-skills" class="toggle-window">
+    <div class="window-wrapper child-window" id="win-skills" style="top: 120px; left: 270px; width: 480px;">
+        <label class="focus-trigger" for="focus-skills"></label>
+        <div class="window-frame">
+            <div class="title-bar">
+                <label for="toggle-skills" class="win-btn">-</label>
+                <span class="title-text">PIF Editor - SKILLS.PIF</span>
+                <div class="win-btn">▲</div>
+            </div>
+            <div class="window-body" style="padding:15px; background:#c0c0c0;">
+                <fieldset style="border:1px solid black; padding:10px;">
+                    <legend>Logiciels</legend>
+                    <ul><li>[x] Photoshop</li><li>[x] Inkscape</li><li>[ ] Figma</li></ul>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+
+    <!-- HORLOGE (CSS PURE ANIMATION) -->
+    <input type="checkbox" id="toggle-clock" class="toggle-window">
+    <div class="window-wrapper child-window" id="win-clock-app" style="top: 50px; right: 50px; width: 220px; height: 220px;">
+        <label class="focus-trigger" for="focus-clock"></label>
+        <div class="window-frame" style="height:100%;">
+            <div class="title-bar">
+                <label for="toggle-clock" class="win-btn">-</label>
+                <span class="title-text">Clock</span>
+                <div class="win-btn">▲</div>
+            </div>
+            <div class="window-body" id="clock-body" style="height:100%; display:flex; align-items:center; justify-content:center;">
+                <!-- Cadran CSS pur -->
+                <div class="clock-face">
+                    <div class="clock-marker m-12"></div><div class="clock-marker m-3"></div>
+                    <div class="clock-marker m-6"></div><div class="clock-marker m-9"></div>
+                    <!-- Aiguilles animées en CSS -->
+                    <div class="hand hour-hand anim-hour"></div>
+                    <div class="hand minute-hand anim-min"></div>
+                    <div class="hand second-hand anim-sec"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>

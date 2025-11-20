@@ -1,0 +1,23 @@
+Structure du dossier pour le volume STOCKAGE
+Le numéro de série du volume est 0AD7-2394
+D:.
+    appbusystatic.cur
+    appstatic.cur
+    windows-3.crs
+    Application Starting.cur
+    Cross Hair.cur
+    Cursors.cur
+    I-Beam.cur
+    No.cur
+    nt31-bt1k6.crs
+    Size All.cur
+    Size NE-SW.cur
+    Size N-S.cur
+    Size NW-SE.cur
+    Size W-E.cur
+    Wait.cur
+    Arrow.cur
+    arborescence.txt
+    
+Aucun sous-dossier existant 
+

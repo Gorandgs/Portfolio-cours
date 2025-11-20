@@ -1,0 +1,33 @@
+﻿[Arrow]
+Path=Arrow.cur
+
+[Wait]
+Path=Wait.cur
+
+[AppStarting]
+Path=Application Starting.cur
+
+[No]
+Path=No.cur
+
+[IBeam]
+Path=I-Beam.cur
+
+[Crosshair]
+Path=Cross Hair.cur
+
+[SizeNS]
+Path=Size N-S.cur
+
+[SizeWE]
+Path=Size W-E.cur
+
+[SizeNWSE]
+Path=Size NW-SE.cur
+
+[SizeNESW]
+Path=Size NE-SW.cur
+
+[SizeAll]
+Path=Size All.cur
+
